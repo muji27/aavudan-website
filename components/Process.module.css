@@ -1,0 +1,385 @@
+.processSection {
+  padding: 120px 8%;
+  background: #f8f6f1;
+  position: relative;
+  overflow: hidden;
+}
+
+.heading {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 90px;
+}
+
+.subtitle {
+  display: inline-block;
+  color: #c9a24b;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.heading h2 {
+  color: #1b3a2b;
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.heading p {
+  color: #666;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+.timeline {
+  max-width: 1300px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+.verticalLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(
+    to bottom,
+    #d7c28a,
+    #d7c28a,
+    #d7c28a
+  );
+  transform: translateX(-50%);
+  border-radius: 999px;
+}
+
+.timelineRow {
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr;
+  align-items: center;
+  gap: 45px;
+  position: relative;
+}
+
+.reverse .imageColumn {
+  order: 3;
+}
+
+.reverse .contentColumn {
+  order: 1;
+}
+
+.reverse .middleColumn {
+  order: 2;
+}
+
+.imageColumn,
+.contentColumn {
+  width: 100%;
+}
+
+.imageCard {
+  background: white;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.08);
+  transition: .35s ease;
+}
+
+.imageCard:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 25px 55px rgba(0,0,0,.14);
+}
+
+.processImage {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  display: block;
+}
+
+.middleColumn {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.circle {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: #1b3a2b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 700;
+  border: 8px solid #f8f6f1;
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+  transition: .3s;
+}
+
+.timelineRow:hover .circle {
+  transform: scale(1.08);
+}
+
+.contentCard {
+  background: white;
+  padding: 45px;
+  border-radius: 28px;
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.08);
+  transition: .35s ease;
+}
+
+.contentCard:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 25px 55px rgba(0,0,0,.14);
+}
+
+.stepLabel {
+  display: inline-block;
+  color: #c9a24b;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.contentCard h3 {
+  font-size: 34px;
+  color: #1b3a2b;
+  margin-bottom: 18px;
+  line-height: 1.25;
+}
+
+.contentCard p {
+  color: #666;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* ===========================================
+   PREMIUM MICRO INTERACTIONS
+=========================================== */
+
+.timelineRow:hover .contentCard h3 {
+  color: #c9a24b;
+  transition: color 0.3s ease;
+}
+
+.timelineRow:hover .processImage {
+  transform: scale(1.03);
+}
+
+.processImage {
+  transition: transform 0.5s ease;
+}
+
+.contentCard,
+.imageCard,
+.circle {
+  will-change: transform;
+}
+
+/* ===========================================
+   LARGE TABLETS
+=========================================== */
+
+@media (max-width: 1200px) {
+
+  .timelineRow {
+    grid-template-columns: 1fr 90px 1fr;
+    gap: 28px;
+  }
+
+  .processImage {
+    height: 280px;
+  }
+
+  .contentCard {
+    padding: 35px;
+  }
+
+  .contentCard h3 {
+    font-size: 28px;
+  }
+
+}
+
+/* ===========================================
+   TABLETS
+=========================================== */
+
+@media (max-width: 992px) {
+
+  .heading h2 {
+    font-size: 42px;
+  }
+
+  .heading p {
+    font-size: 17px;
+  }
+
+  .timeline {
+    gap: 70px;
+  }
+
+  .timelineRow {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-left: 90px;
+  }
+
+  .verticalLine {
+    left: 40px;
+    transform: none;
+  }
+
+  .middleColumn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .reverse .imageColumn,
+  .reverse .contentColumn,
+  .reverse .middleColumn {
+    order: initial;
+  }
+
+}
+
+/* ===========================================
+   MOBILE
+=========================================== */
+
+@media (max-width: 768px) {
+
+  .processSection {
+    padding: 90px 24px;
+  }
+
+  .heading {
+    margin-bottom: 70px;
+  }
+
+  .heading h2 {
+    font-size: 34px;
+  }
+
+  .heading p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .timeline {
+    gap: 55px;
+  }
+
+  .timelineRow {
+    padding-left: 70px;
+  }
+
+  .verticalLine {
+    left: 30px;
+  }
+
+  .circle {
+    width: 66px;
+    height: 66px;
+    font-size: 22px;
+    border-width: 5px;
+  }
+
+  .processImage {
+    height: 220px;
+  }
+
+  .contentCard {
+    padding: 28px;
+  }
+
+  .contentCard h3 {
+    font-size: 24px;
+  }
+
+  .contentCard p {
+    font-size: 15px;
+  }
+
+}
+
+/* ===========================================
+   SMALL MOBILE
+=========================================== */
+
+@media (max-width: 480px) {
+
+  .processSection {
+    padding: 80px 18px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  .heading h2 {
+    font-size: 30px;
+  }
+
+  .timelineRow {
+    padding-left: 55px;
+  }
+
+  .verticalLine {
+    left: 24px;
+  }
+
+  .circle {
+    width: 54px;
+    height: 54px;
+    font-size: 18px;
+  }
+
+  .processImage {
+    height: 190px;
+  }
+
+  .contentCard {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .imageCard {
+    border-radius: 22px;
+  }
+
+}
+
+/* ===========================================
+   SMOOTH EXPERIENCE
+=========================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #1b3a2b;
+  color: white;
+}
