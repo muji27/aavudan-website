@@ -17,8 +17,10 @@ export const metadata: Metadata = {
     default: "Aavudan Farm Fresh Dairy",
     template: "%s | Aavudan",
   },
+
   description:
     "Premium farm fresh dairy products from Abhivrit Farms. Fresh milk, curd, paneer, ghee and other quality dairy products delivered with purity and care.",
+
   keywords: [
     "Aavudan",
     "Abhivrit Farms",
@@ -29,6 +31,12 @@ export const metadata: Metadata = {
     "Ghee",
     "Dairy Products",
   ],
+
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -41,7 +49,9 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+      </body>
     </html>
   );
 }
