@@ -1,3 +1,5 @@
+import styles from "./Navbar.module.css";
+
 export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -9,59 +11,27 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "20px 80px",
-        background: "#F8F6F1",
-        borderBottom: "1px solid #E5E5E5",
-        position: "sticky",
-        top: 0,
-        zIndex: 1000,
-        backdropFilter: "blur(10px)",
-      }}
-    >
-      {/* Logo */}
+    <nav className={styles.navbar}>
+      {/* Brand Logo */}
       <a
         href="#home"
-        style={{
-          textDecoration: "none",
-        }}
+        className={styles.logo}
+        aria-label="Aavudan Home"
       >
-        <h2
-          style={{
-            color: "#1B3A2B",
-            fontSize: "32px",
-            fontWeight: "bold",
-            margin: 0,
-            cursor: "pointer",
-          }}
-        >
-          Aavudan
-        </h2>
+        <img
+          src="/images/logo/logo.png"
+          alt="Aavudan Farm Fresh Dairy"
+          className={styles.logoImage}
+        />
       </a>
 
-      {/* Navigation */}
-      <div
-        style={{
-          display: "flex",
-          gap: "40px",
-          fontSize: "18px",
-          alignItems: "center",
-        }}
-      >
+      {/* Navigation Links */}
+      <div className={styles.navLinks}>
         {navLinks.map((link) => (
           <a
             key={link.name}
             href={link.href}
-            style={{
-              textDecoration: "none",
-              color: "#1B3A2B",
-              fontWeight: 500,
-              transition: "0.3s",
-            }}
+            className={styles.navLink}
           >
             {link.name}
           </a>

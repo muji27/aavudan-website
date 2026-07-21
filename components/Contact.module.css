@@ -1,0 +1,237 @@
+.contact {
+  padding: 120px 20px;
+  background: #F8F6F1;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.tag {
+  display: inline-block;
+  color: #B88A2C;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.container h2 {
+  font-size: clamp(2.3rem,5vw,3.8rem);
+  color:#173B2D;
+  line-height:1.2;
+  margin-bottom:18px;
+}
+
+.subtitle{
+  max-width:760px;
+  color:#666;
+  line-height:1.8;
+  font-size:1.05rem;
+  margin-bottom:70px;
+}
+
+/* ================= Layout ================= */
+
+.wrapper{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
+}
+
+/* ================= Left Image ================= */
+
+.imageCard{
+  background:white;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 18px 45px rgba(0,0,0,.08);
+  transition:.4s ease;
+}
+
+.imageCard:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(0,0,0,.12);
+}
+
+.imageCard img{
+  width:100%;
+  height:440px;
+  object-fit:cover;
+  display:block;
+  transition:.6s ease;
+}
+
+.imageCard:hover img{
+  transform:scale(1.05);
+}
+
+.quote{
+  padding:34px;
+}
+
+.quote span{
+  color:#B88A2C;
+  font-weight:700;
+  letter-spacing:2px;
+  font-size:.85rem;
+}
+
+.quote h3{
+  margin:14px 0;
+  color:#173B2D;
+  font-size:2rem;
+  line-height:1.3;
+}
+
+.quote p{
+  color:#666;
+  line-height:1.8;
+  font-size:1rem;
+}
+
+/* ================= Form ================= */
+
+.form{
+  background:white;
+  padding:45px;
+  border-radius:28px;
+  box-shadow:0 18px 45px rgba(0,0,0,.08);
+
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.form h3{
+  color:#173B2D;
+  font-size:2rem;
+}
+
+.formText{
+  color:#666;
+  line-height:1.7;
+  margin-bottom:10px;
+}
+
+.form input,
+.form textarea{
+
+  width:100%;
+
+  padding:17px 20px;
+
+  border:1px solid #E6E6E6;
+
+  border-radius:14px;
+
+  background:#FAFAFA;
+
+  font-size:16px;
+
+  outline:none;
+
+  transition:.3s ease;
+
+}
+
+.form input:focus,
+.form textarea:focus{
+
+  border-color:#B88A2C;
+
+  background:white;
+
+  box-shadow:0 0 0 4px rgba(184,138,44,.12);
+
+}
+
+.form textarea{
+  resize:vertical;
+  min-height:180px;
+}
+
+.form button{
+
+  margin-top:8px;
+
+  background:#173B2D;
+
+  color:white;
+
+  border:none;
+
+  padding:18px;
+
+  border-radius:14px;
+
+  font-size:17px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.35s ease;
+
+}
+
+.form button:hover{
+
+  background:#B88A2C;
+
+  transform:translateY(-3px);
+
+  box-shadow:0 18px 35px rgba(184,138,44,.25);
+
+}
+
+/* ================= Tablet ================= */
+
+@media (max-width:950px){
+
+.wrapper{
+grid-template-columns:1fr;
+}
+
+.imageCard img{
+height:360px;
+}
+
+}
+
+/* ================= Mobile ================= */
+
+@media (max-width:600px){
+
+.contact{
+padding:90px 18px;
+}
+
+.subtitle{
+margin-bottom:45px;
+}
+
+.form{
+padding:28px;
+}
+
+.imageCard img{
+height:260px;
+}
+
+.quote{
+padding:24px;
+}
+
+.quote h3{
+font-size:1.5rem;
+}
+
+.form h3{
+font-size:1.7rem;
+}
+
+}
