@@ -31,12 +31,6 @@ export const metadata: Metadata = {
     "Ghee",
     "Dairy Products",
   ],
-
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
-  },
 };
 
 export default function RootLayout({
