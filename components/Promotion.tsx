@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./Promotion.module.css";
 
 const promotions = [
@@ -19,13 +19,11 @@ const promotions = [
 export default function Promotion() {
   const [current, setCurrent] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % promotions.length);
-    }, 5000);
+  // For swipe gestures
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-    return () => clearInterval(interval);
-  }, []);
+  const minSwipeDistance = 50;
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % promotions.length);
@@ -37,12 +35,34 @@ export default function Promotion() {
     );
   };
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (touchStart === null || touchEnd === null) return;
+
+    const distance = touchStart - touchEnd;
+
+    if (distance > minSwipeDistance) {
+      nextSlide(); // Swipe left
+    }
+
+    if (distance < -minSwipeDistance) {
+      prevSlide(); // Swipe right
+    }
+  };
+
   // Promotion 1 is the wide banner
   const isWidePoster = current === 0;
 
   // Promotion 4-9 use a slightly shorter card
-  const isMediumPoster =
-    current >= 3 && current <= 8;
+  const isMediumPoster = current >= 3 && current <= 8;
 
   return (
     <section id="promotion" className={styles.promotion}>
@@ -75,6 +95,9 @@ export default function Promotion() {
                 ? styles.mediumCard
                 : styles.portraitCard
             }`}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
           >
             <img
               src={promotions[current]}
