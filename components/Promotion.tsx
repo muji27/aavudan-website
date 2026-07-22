@@ -7,7 +7,13 @@ const promotions = [
   "/images/promotions/promotion-1.jpeg",
   "/images/promotions/promotion-2.jpeg",
   "/images/promotions/promotion-3.jpeg",
-  "/images/promotions/promotion-4.jpeg",
+  "/images/promotions/promotion-4.png",
+  "/images/promotions/promotion-5.png",
+  "/images/promotions/promotion-6.png",
+  "/images/promotions/promotion-7.png",
+  "/images/promotions/promotion-8.png",
+  "/images/promotions/promotion-9.jpeg",
+  "/images/promotions/promotion-10.jpeg",
 ];
 
 export default function Promotion() {
@@ -31,8 +37,12 @@ export default function Promotion() {
     );
   };
 
-  // Promotion 1 is now the wide banner
+  // Promotion 1 is the wide banner
   const isWidePoster = current === 0;
+
+  // Promotion 4-9 use a slightly shorter card
+  const isMediumPoster =
+    current >= 3 && current <= 8;
 
   return (
     <section id="promotion" className={styles.promotion}>
@@ -59,7 +69,11 @@ export default function Promotion() {
 
           <div
             className={`${styles.imageCard} ${
-              isWidePoster ? styles.wideCard : styles.portraitCard
+              isWidePoster
+                ? styles.wideCard
+                : isMediumPoster
+                ? styles.mediumCard
+                : styles.portraitCard
             }`}
           >
             <img
