@@ -24,14 +24,13 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  z-index: 1002;
 }
 
 .logoImage {
-  height: 64px;
   width: auto;
-  display: block;
+  height: 64px;
   object-fit: contain;
-
   transition: transform 0.35s ease;
 }
 
@@ -49,42 +48,28 @@
 
 .navLink {
   position: relative;
-
   text-decoration: none;
-
   color: #173b2d;
-
   font-size: 17px;
   font-weight: 500;
   letter-spacing: 0.2px;
-
   transition: color 0.3s ease;
 }
-
-/* Hover */
 
 .navLink:hover {
   color: #b88a2c;
 }
 
-/* Underline */
-
 .navLink::after {
   content: "";
-
   position: absolute;
-
   left: 50%;
   bottom: -8px;
-
   width: 0%;
   height: 2px;
-
   background: #b88a2c;
-  border-radius: 10px;
-
+  border-radius: 999px;
   transition: all 0.3s ease;
-
   transform: translateX(-50%);
 }
 
@@ -92,33 +77,75 @@
   width: 100%;
 }
 
-/* ---------------- TABLET ---------------- */
+/* ---------------- MENU BUTTON ---------------- */
 
-@media (max-width: 900px) {
+.menuButton {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 6px;
+
+  z-index: 1002;
+}
+
+.bar {
+  width: 26px;
+  height: 2.5px;
+
+  background: #173b2d;
+
+  border-radius: 999px;
+
+  transition: 0.35s ease;
+}
+
+.bar1Open {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.bar2Open {
+  opacity: 0;
+}
+
+.bar3Open {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ---------------- LARGE TABLETS ---------------- */
+
+@media (max-width: 1024px) {
   .navbar {
-    padding: 14px 32px;
+    padding: 16px 40px;
+  }
+
+  .navLinks {
+    gap: 28px;
   }
 
   .logoImage {
     height: 58px;
   }
-
-  .navLinks {
-    gap: 26px;
-  }
-
-  .navLink {
-    font-size: 16px;
-  }
 }
 
 /* ---------------- MOBILE ---------------- */
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    gap: 16px;
-    padding: 18px 20px;
+    padding: 16px 22px;
+  }
+
+  .menuButton {
+    display: flex;
   }
 
   .logoImage {
@@ -126,12 +153,74 @@
   }
 
   .navLinks {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 18px;
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0;
+
+    background: rgba(248, 246, 241, 0.98);
+
+    backdrop-filter: blur(18px);
+
+    overflow: hidden;
+
+    max-height: 0;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+      max-height 0.35s ease,
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  .navLinksOpen {
+    max-height: 420px;
+    opacity: 1;
+    visibility: visible;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
   }
 
   .navLink {
-    font-size: 15px;
+    width: 100%;
+
+    text-align: center;
+
+    padding: 18px 0;
+
+    font-size: 17px;
+  }
+
+  .navLink::after {
+    display: none;
+  }
+}
+
+/* ---------------- SMALL MOBILE ---------------- */
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 14px 18px;
+  }
+
+  .logoImage {
+    height: 46px;
+  }
+
+  .navLink {
+    font-size: 16px;
+    padding: 16px 0;
   }
 }

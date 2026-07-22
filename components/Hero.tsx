@@ -1,159 +1,75 @@
+import Image from "next/image";
+import styles from "./Hero.module.css";
+
 export default function Hero() {
   return (
-    <section
-      id="home"
-      style={{
-        minHeight: "90vh",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "80px",
-        gap: "70px",
-        scrollMarginTop: "100px",
-        background: "#F8F6F1",
-      }}
-    >
+    <section id="home" className={styles.hero}>
       {/* Left Content */}
-      <div style={{ flex: 1 }}>
-        <p
-          style={{
-            color: "#C9A24B",
-            fontWeight: "700",
-            letterSpacing: "3px",
-            marginBottom: "20px",
-            fontSize: "18px",
-          }}
-        >
+      <div className={styles.content}>
+        <p className={styles.tagline}>
           PURE • FRESH • AUTHENTIC
         </p>
 
-        <h1
-          style={{
-            fontSize: "68px",
-            lineHeight: "1.15",
-            color: "#1B3A2B",
-            marginBottom: "28px",
-            fontWeight: "700",
-          }}
-        >
+        <h1 className={styles.title}>
           Bringing Farm Fresh Dairy
           <br />
           To Every Home.
         </h1>
 
-        <p
-          style={{
-            fontSize: "20px",
-            color: "#555",
-            maxWidth: "560px",
-            lineHeight: "1.8",
-            marginBottom: "40px",
-          }}
-        >
+        <p className={styles.description}>
           Premium dairy products crafted with purity, traditional care and
           uncompromising quality from Abhivrit Farms.
         </p>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "20px",
-          }}
-        >
-          <a href="#products">
-            <button
-              style={{
-                background: "#1B3A2B",
-                color: "#fff",
-                padding: "16px 38px",
-                borderRadius: "10px",
-                border: "none",
-                cursor: "pointer",
-                fontSize: "16px",
-                fontWeight: "600",
-              }}
-            >
-              Explore Products
-            </button>
+        <div className={styles.heroCardMobile}>
+          <div className={styles.heroCard}>
+            <Image
+              src="/images/illustrations/mascot.jpeg"
+              alt="Aavudan Mascot"
+              width={390}
+              height={390}
+              priority
+              className={styles.mascot}
+            />
+
+            <h3 className={styles.cardTitle}>
+              From Our Farm To Your Family ❤️
+            </h3>
+
+            <p className={styles.cardSubtitle}>
+              Pure • Fresh • Authentic
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.buttonGroup}>
+          <a href="#products" className={styles.primaryButton}>
+            Explore Products
           </a>
 
-          <a href="#contact">
-            <button
-              style={{
-                background: "transparent",
-                color: "#1B3A2B",
-                padding: "16px 38px",
-                borderRadius: "10px",
-                border: "2px solid #1B3A2B",
-                cursor: "pointer",
-                fontSize: "16px",
-                fontWeight: "600",
-              }}
-            >
-              Contact Us
-            </button>
+          <a href="#contact" className={styles.secondaryButton}>
+            Contact Us
           </a>
         </div>
       </div>
 
-      {/* Right Content */}
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            width: "540px",
-            height: "540px",
-            background: "#FCFBF8",
-            borderRadius: "30px",
-            boxShadow: "0 25px 60px rgba(0,0,0,0.08)",
-            border: "1px solid #ECE7DC",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "35px",
-          }}
-        >
-          <img
+      {/* Right Content (Desktop) */}
+      <div className={styles.imageSection}>
+        <div className={styles.heroCard}>
+          <Image
             src="/images/illustrations/mascot.jpeg"
             alt="Aavudan Mascot"
-            style={{
-              width: "100%",
-              maxWidth: "390px",
-              objectFit: "contain",
-              borderRadius: "18px",
-              display: "block",
-            }}
+            width={390}
+            height={390}
+            priority
+            className={styles.mascot}
           />
 
-          <h3
-            style={{
-              color: "#1B3A2B",
-              fontSize: "20px",
-              fontWeight: "700",
-              marginTop: "24px",
-              marginBottom: "10px",
-              textAlign: "center",
-            }}
-          >
+          <h3 className={styles.cardTitle}>
             From Our Farm To Your Family ❤️
           </h3>
 
-          <p
-            style={{
-              color: "#777",
-              fontSize: "15px",
-              letterSpacing: "1px",
-              textAlign: "center",
-              margin: 0,
-            }}
-          >
+          <p className={styles.cardSubtitle}>
             Pure • Fresh • Authentic
           </p>
         </div>
